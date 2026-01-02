@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VitaSenseAI Health Risk Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='assets/Caduceus.svg') }}">
+    
+    <!--F O N T L I N K S-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <!-- Loading overlay -->
+    <div id="loader" class="loader-overlay">
+        <div id="health-animation" class="health-animation"></div>
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+        <img src="{{ url_for('static', filename='assets/logo.svg') }}" alt="VitaSenseAI Logo" class="logo">
+    </div>
+
+    <!-- Form Container -->
+    <div class="container">
+        <h1 class="title">Predict your Health Risk!</h1>
+        <p class="subtitle">Fill in the information below to get a personalized health risk assessment.</p>
+
+        <form id="healthForm">
+
+
+            <div class="form-row">
+                <!-- Age -->
+
+                <label>Age:
+                    <div class="custom-number-input" data-name="age">
+                        <button type="button" class="number-btn number-btn-minus">−</button>
+                        <input type="number" name="age" id="age" class="number-input" required min="0" step="1">
+                        <button type="button" class="number-btn number-btn-plus">+</button>
+                    </div>
+                </label>
+
+                <!-- Weight -->
+
+                <label>Weight (kg):
+                    <div class="custom-number-input" data-name="weight">
+                        <button type="button" class="number-btn number-btn-minus">−</button>
+                        <input type="number" name="weight" class="number-input" required min="0" step="0.1">
+                        <button type="button" class="number-btn number-btn-plus">+</button>
+                    </div>
+                </label>
+
+                <!-- Height -->
+
+                <label>Height (cm):
+                    <div class="custom-number-input" data-name="height">
+                        <button type="button" class="number-btn number-btn-minus">−</button>
+                        <input type="number" name="height" class="number-input" required min="0" step="0.1">
+                        <button type="button" class="number-btn number-btn-plus">+</button>
+                    </div>
+                </label>
+            </div>
+
+            <div class="form-row">
+
+                <!-- Profession -->
+
+                <label>Profession:
+                    <div class="custom-dropdown" data-name="profession">
+                        <div class="dropdown-trigger">
+                            <span class="dropdown-value">Select an option</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"><path fill="#0C95AD" d="M7 9L0 1h14z"/></svg>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-value="office_worker">Office Worker</div>
+                            <div class="dropdown-option" data-value="teacher">Teacher</div>
+                            <div class="dropdown-option" data-value="artist">Artist</div>
+                            <div class="dropdown-option" data-value="engineer">Engineer</div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="profession" value="">
+                </label>
+
+                <!-- Marriage Status -->
+
+                <label>Marriage:
+                    <div class="custom-dropdown" data-name="married">
+                        <div class="dropdown-trigger">
+                            <span class="dropdown-value">Select an option</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"><path fill="#0C95AD" d="M7 9L0 1h14z"/></svg>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-value="yes">Yes</div>
+                            <div class="dropdown-option" data-value="no">No</div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="married" value="">
+                </label>
+            </div>
+
+            <div class="form-row">
+
+                <!-- Sleep -->
+
+                <label>Sleep hours:
+                    <div class="custom-number-input" data-name="sleep">
+                        <button type="button" class="number-btn number-btn-minus">−</button>
+                        <input type="number" name="sleep" class="number-input" required min="0" step="0.1">
+                        <button type="button" class="number-btn number-btn-plus">+</button>
+                    </div>
+                </label>
+
+                <!-- Exercise -->
+
+                <label>Exercise:
+                    <div class="custom-dropdown" data-name="exercise">
+                        <div class="dropdown-trigger">
+                            <span class="dropdown-value">Select an option</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"><path fill="#0C95AD" d="M7 9L0 1h14z"/></svg>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-value="low">Low</div>
+                            <div class="dropdown-option" data-value="medium">Medium</div>
+                            <div class="dropdown-option" data-value="high">High</div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="exercise" value="">
+                </label>
+
+                <!-- Sugar Intake -->
+
+                <label>Sugar Intake:
+                    <div class="custom-dropdown" data-name="sugar_intake">
+                        <div class="dropdown-trigger">
+                            <span class="dropdown-value">Select an option</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"><path fill="#0C95AD" d="M7 9L0 1h14z"/></svg>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-value="low">Low</div>
+                            <div class="dropdown-option" data-value="medium">Medium</div>
+                            <div class="dropdown-option" data-value="high">High</div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="sugar_intake" value="">
+                </label>
+            </div>
+            
+            <div class="form-row">
+
+                <!-- Smoking -->
+
+                <label>Smoking:
+                    <div class="custom-dropdown" data-name="smoking">
+                        <div class="dropdown-trigger">
+                            <span class="dropdown-value">Select an option</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"><path fill="#0C95AD" d="M7 9L0 1h14z"/></svg>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-value="yes">Yes</div>
+                            <div class="dropdown-option" data-value="no">No</div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="smoking" value="">
+                </label>
+
+                <!-- Alcohol -->
+
+                <label>Alcohol:
+                    <div class="custom-dropdown" data-name="alcohol">
+                        <div class="dropdown-trigger">
+                            <span class="dropdown-value">Select an option</span>
+                            <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="9" viewBox="0 0 14 9"><path fill="#0C95AD" d="M7 9L0 1h14z"/></svg>
+                        </div>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-option" data-value="yes">Yes</div>
+                            <div class="dropdown-option" data-value="no">No</div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="alcohol" value="">
+                </label>
+            </div>
+
+
+
+            <div class="button-wrapper">
+                <button type="submit">Predict</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Result Popup -->
+    <div id="overlay"></div>
+
+    <div id="result" class="result-card">
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

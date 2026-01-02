@@ -1,0 +1,591 @@
+/* 
+---------------------------------------------
+Pallete
+--------------------------------------------- 
+*/
+
+:root {
+    --cyan: #1EF2CE;
+    --dark_cyan: #0C95AD;
+    --blue: #3BD2E3;
+    --dark-blue: #1B9AC8;
+    --red: #DF4667;
+    --yellow: #EEC521;
+    --orange: #F58F1B;
+    --dark-orange: #E95D0E;
+
+
+    --bg-color: #FFFFF5;
+    --gray: #4a4a4a;
+    --light-pink: #fdf4f5;
+    --text-color: #000000;
+    --transparent: transparent;
+
+    --font-main: 'Alumni Sans Pinstripe', Arial;
+    --font-sub: 'Inter', sans-serif;
+
+}
+
+/* 
+---------------------------------------------
+Global Styles
+--------------------------------------------- 
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, div
+pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q,
+s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li,
+figure, header, nav, section, article, aside, footer, figcaption {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+}
+
+.clearfix {
+  display: inline-block;
+}
+
+html[xmlns] .clearfix {
+  display: block;
+}
+
+* html .clearfix {
+  height: 1%;
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+header, nav, section, article, aside, footer, hgroup {
+  display: block;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font-main);
+  -ms-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+hr {
+  border-top: 2px dashed var(--cyan);
+  width: 50%;
+  margin: 40px auto;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  text-align: center;
+  font-family: var(--font-main);
+  color: var(--text-color);
+  margin-top: 0px;
+  margin-bottom: 0px;
+  line-height: 64px;
+  font-size: 36px;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+ul {
+  margin-bottom: 0px;
+}
+
+p {
+  font-family: var(--font-sub);
+  font-size: 16px;
+  line-height: 28px;
+  color: var(--gray);
+  font-weight: 400;
+}
+
+img {
+  width: 100%;
+  overflow: hidden;
+}
+
+html,
+body {
+  font-family: var(--font-main);
+  background-color: var(--cyan);
+}
+
+/* 
+---------------------------------------------
+Main Banner
+--------------------------------------------- 
+*/
+
+.banner {
+    background-color: var(--cyan);
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+}
+
+.logo {
+    max-width: 30em;
+    display: block;
+}
+
+.title{
+  margin-top: 5px;
+}
+.subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 
+---------------------------------------------
+Container & Form Styles
+--------------------------------------------- 
+*/
+.container {
+    margin: 30px auto;
+    background-color: var(--bg-color);
+    padding: 30px 80px;
+    border-radius: 20px;
+    align-items: center;
+    width: 90%;
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.form-row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+  flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+  align-items: center;
+    font-weight: 600;
+    text-align: left;
+    color: var(--gray);
+  width: 100%;
+
+    font-family: var(--font-main);
+}
+
+/* Make labels inside form rows behave as flexible columns so inputs
+   (dropdowns / number inputs) can grow/shrink with the container */
+.form-row > label {
+  flex: 1 1 0;
+  min-width: 150px;
+  width: auto;
+}
+
+
+
+
+/* 
+---------------------------------------------
+Button
+--------------------------------------------- 
+*/
+
+.button-wrapper {
+  margin-top: 30px;
+    width: 100%;
+    padding: 5px;
+    background: linear-gradient(var(--orange), var(--dark-orange));
+    border-radius: 50px;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-wrapper:hover {
+    background: var(--dark_cyan);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    scale: 1.05;
+}
+
+button {
+    width: 100%;
+    padding: 20px;
+    background: transparent; /* inherit wrapper's background */
+    color: var(--bg-color);
+    border: 2px solid var(--bg-color);
+    border-radius: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+
+/* 
+---------------------------------------------
+Custom Inputs
+--------------------------------------------- 
+*/
+.custom-number-input {
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 10px;
+  box-shadow: -13px 13px 0 0 var(--dark_cyan);
+  border: 1px solid var(--dark_cyan);
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.custom-number-input:hover {
+  border-color: var(--cyan);
+  box-shadow: -13px 13px 0 0 var(--cyan);
+  
+}
+
+.number-input {
+  flex: 1;
+  min-width: 0;
+  height: 50px;
+  background: var(--bg-color);
+
+  padding: 20px;
+  border: none;
+
+  outline: none;
+  font-family: var(--font-sub);
+  text-align: center;
+  font-size: 16px;
+  color: var(--text-color);
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.number-input::-webkit-outer-spin-button,
+.number-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.number-input::-moz-number-buttons {
+  display: none;
+}
+
+.number-btn {
+  width: clamp(40px, 10vw, 50px);
+  height: 100%;
+  padding: 5px;
+  background-color: var(--bg-color);
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 20px;
+  color: var(--dark_cyan);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-sub);
+  outline: none;
+
+  border-radius: 0;
+}
+
+.number-btn-minus {
+  border-radius: 16px 0 0 16px;
+  border-right: none;
+}
+
+.number-btn-plus {
+  border-radius: 0 16px 16px 0;
+  border-left: none;
+}
+
+.number-btn:hover {
+  background-color: var(--cyan);
+  color: var(--bg-color);
+}
+
+.number-btn:active {
+  transform: scale(0.95);
+}
+
+
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+}
+
+.dropdown-trigger {
+  width: 100%;
+  height: 50px;
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid var(--dark_cyan);
+  background-color: var(--bg-color);
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: -13px 13px 0 0 var(--dark_cyan);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-sub);
+  color: var(--text-color);
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.dropdown-trigger:hover,
+.dropdown-trigger.active {
+  border-color: var(--cyan);
+  box-shadow: -13px 13px 0 0 var(--cyan);
+}
+
+.dropdown-value {
+  flex: 1;
+  text-align: left;
+  color: var(--gray);
+}
+
+.dropdown-arrow {
+  width: 14px;
+  height: 9px;
+  transition: transform 0.3s;
+  margin-left: 10px;
+}
+
+.dropdown-trigger.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid var(--cyan);
+  border-top: none;
+  border-radius: 16px;
+  display: none;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.dropdown-menu.active {
+  display: block;
+}
+
+.dropdown-option {
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: var(--text-color);
+  font-family: var(--font-sub);
+}
+
+.dropdown-option:hover {
+  background-color: var(--cyan);
+  color: var(--bg-color);
+}
+
+.dropdown-option.selected {
+  background-color: var(--cyan);
+  color: #000;
+}
+
+/* 
+---------------------------------------------
+Result Card
+--------------------------------------------- 
+*/
+
+.result-card {
+    background-color: var(--bg-color); /* temporary */
+    padding: 30px 80px;
+    border-radius: 16px;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%; /* Default for medium screens */
+    max-width: 600px; /* Prevents excessive width on large screens */
+    box-sizing: border-box; /* Ensures padding is included in width calculations */
+}
+
+@media (max-width: 767px) {
+    .result-card {
+        width: 90%;
+        padding: 20px 40px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .result-card {
+        width: auto;
+    }
+}
+
+.result-text {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    color: var(--text-color);
+    text-align: justify;
+    background: rgba(30, 242, 206, 0.6);
+    border: 3px solid var(--cyan);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.error {
+    color: red;
+    font-weight: 600;
+}
+
+/* Overlay */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    z-index: 1000;
+}
+
+.result-card {
+    display: none; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1001;
+}
+
+/* Close button inside result card */
+.result-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  color: var(--gray);
+  cursor: pointer;
+  padding: 4px;
+  z-index: 1003;
+}
+
+.result-close:hover {
+    transform: scale(1.05);
+}
+
+/* Result-card reveal animation */
+@keyframes fade-up {
+  from { opacity: 0; transform: translate(-50%, -40%); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.result-card.show {
+  animation: fade-up 260ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* 
+---------------------------------------------
+Snackbar
+--------------------------------------------- 
+*/
+#snackbar {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.9);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  z-index: 1200;
+  display: none;
+  font-family: var(--font-sub);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+}
+
+#snackbar.show {
+  display: block;
+  animation: snackbar-in 220ms ease-out;
+}
+
+@keyframes snackbar-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+@keyframes snackbar-out {
+  from { opacity: 1; transform: translateX(-50%) translateY(0); }
+  to { opacity: 0; transform: translateX(-50%) translateY(-8px); }
+}
+
+#snackbar.hide {
+  animation: snackbar-out 220ms ease-in forwards;
+}
+/* 
+---------------------------------------------
+Loading Animation
+--------------------------------------------- 
+*/
+
+/* Loading overlay & spinner */
+.loader-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.loader-overlay.hidden {
+    display: none;
+}
+
+/* Health animation container */
+.health-animation {
+  width: 200px; /* Adjust size as needed based on your animation */
+  height: 200px;
+  display: block; /* visible while loading (Lottie handles animation) */
+}

@@ -1,0 +1,1 @@
+- [x] Update dataset_path in train_model.py to "data/Lifestyle_and_Health_Risk_Prediction_Synthetic_Dataset.csv" to connect the existing data file
